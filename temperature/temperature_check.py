@@ -20,6 +20,7 @@ def zabbix_sender(temperature_dict: dict) -> None:
     zabbix_command = f"""zabbix_sender -z {settings.ZABBIX_SERVER} -p {settings.ZABBIX_PORT} -s {settings.ZABBIX_NODE} 
                          -k {temperature_dict["sensor"]} -o {temperature_dict["temperature"]}"""
     print(zabbix_command)
+    os.system(zabbix_command)
 
 
 def main():
