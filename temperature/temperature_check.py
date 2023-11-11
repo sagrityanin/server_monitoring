@@ -3,7 +3,6 @@ import psutil
 from config import settings
 from pprint import pprint
 
-ZABBIX_SERVER = "192.168.13.6"
 key_dict = {
     "coretemp": "core_temp",
     "acpitz": "mb_temp",
