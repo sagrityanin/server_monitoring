@@ -6,7 +6,8 @@ from pprint import pprint
 key_dict = {
     "coretemp": "core_temp",
     "acpitz": "mb_temp",
-    "i350bb": "mb_temp"
+    "i350bb": "mb_temp",
+    "atk0110": "mb_temp"
 }
 
 
