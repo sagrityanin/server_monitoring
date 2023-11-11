@@ -6,7 +6,8 @@ from pprint import pprint
 ZABBIX_SERVER = "192.168.13.6"
 key_dict = {
     "coretemp": "core_temp",
-    "acpitz": "mb_temp"
+    "acpitz": "mb_temp",
+    "i350bb": "mb_temp"
 }
 
 def handle_sensor(sensor: str, sensor_data: list) -> None:
@@ -16,7 +17,6 @@ def handle_sensor(sensor: str, sensor_data: list) -> None:
 
 
 def zabbix_sender(temperature_dict: dict) -> None:
-    print(temperature_dict)
     zabbix_command = f"""zabbix_sender -z {settings.ZABBIX_SERVER} -p {settings.ZABBIX_PORT} -s {settings.ZABBIX_NODE} 
                          -k temperature_{temperature_dict["sensor"]} -o {temperature_dict["temperature"]}"""
     print(zabbix_command)
@@ -24,8 +24,11 @@ def zabbix_sender(temperature_dict: dict) -> None:
 
 def main():
     temper_dict = psutil.sensors_temperatures()
-    for item in key_dict:
-        handle_sensor(item, temper_dict[item])
+    # import pprint
+    # pprint.pprint(temper_dict, indent=2)
+    for item in temper_dict:
+        if item in key_dict:
+            handle_sensor(item, temper_dict[item])
 
 
 
