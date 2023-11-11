@@ -9,6 +9,7 @@ key_dict = {
     "i350bb": "mb_temp"
 }
 
+
 def handle_sensor(sensor: str, sensor_data: list) -> None:
     temperature = sensor_data[0].current
     temperature_dict = {"sensor": key_dict[sensor], "temperature": temperature}
@@ -28,7 +29,6 @@ def main():
     for item in temper_dict:
         if item in key_dict:
             handle_sensor(item, temper_dict[item])
-
 
 
 if __name__ == "__main__":
