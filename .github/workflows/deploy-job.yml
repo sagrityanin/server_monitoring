@@ -2,13 +2,20 @@ name: Deploy server test
 on:
   push:
     branches: [ "main", ]
-  
+
 jobs:
-  deploy:
-    runs-on: self-hosted
+  deploy1:
+    runs-on: [self-hosted, Qlaster]
     steps: 
       - name: cd into repo 
         uses: actions/checkout@v3 
-      - name: update repo
+      - name: update repo2
+        run: cd /opt/server_monitoring && git pull
+  deploy2:
+    runs-on: [self-hosted, testDB]
+    steps: 
+      - name: cd into repo 
+        uses: actions/checkout@v3 
+      - name: update repo2
         run: cd /opt/server_monitoring && git pull
 
