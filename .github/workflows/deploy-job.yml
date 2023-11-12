@@ -7,7 +7,7 @@ jobs:
   deploy1:
     strategy:
       matrix:
-        server-list: [Qlaster, testDB]
+        server-list: [Qlaster, testDB, backup, vagontk]
     
     runs-on: 
     - ${{ matrix.server-list }}
