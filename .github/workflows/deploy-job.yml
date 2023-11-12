@@ -10,5 +10,5 @@ jobs:
       - name: cd into repo 
         uses: actions/checkout@v3 
       - name: update repo
-        uses: cd /opt/server_monitoring && git pull
+        run: cd /opt/server_monitoring && git pull
       
