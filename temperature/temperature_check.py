@@ -12,7 +12,7 @@ key_dict = {
 
 
 def handle_sensor(sensor: str, sensor_data: list) -> None:
-    temperature = sum([item.current for item in sensor_data]) / len(sensor_data)
+    temperature = max([item.current for item in sensor_data])
     temperature_dict = {"sensor": key_dict[sensor], "temperature": temperature}
     zabbix_sender(temperature_dict)
 
