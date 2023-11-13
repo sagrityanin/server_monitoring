@@ -1,3 +1,4 @@
-cd  c:/python_project/server_test/windows
-venv\Scripts\activate
-python cpu_temp.py
+set SCRIPT_PATH=c:\python_project\server_monitoring\windows
+cd  %SCRIPT_PATH%
+
+venv\Scripts\python.exe %SCRIPT_PATH%\cpu_temp.py
