@@ -6,6 +6,7 @@
 ### Настройка
 - клонируем репозитарий
 - создаем виртуальное окружение в папке windows (python -m venv windows/venv)
+- активируем окружение *venv/Scripts/activate.bat*
 - ставим зависимости из папки windows
 - редактируем start.bat (корректируем путь к папке windows переменная SCRIPT_PATH)
 - создаем .env по анаплогии env_example
