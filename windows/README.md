@@ -14,11 +14,11 @@
 
 ### Если ошибка "включите переключатель loadFromRemoteSources."
 ### Добавляем 
-<configuration>
+"""<configuration>
     <runtime>
        <loadFromRemoteSources enabled="true"/>
    </runtime>
-</configuration>
+</configuration>"""
 You can find machine.config here:
 
 32-bit
