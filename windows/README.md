@@ -26,6 +26,7 @@ You can find machine.config here:
 32-bit
 
 %windir%\Microsoft.NET\Framework\[version]\config\machine.config
+
 64-bit
 
 %windir%\Microsoft.NET\Framework64\[version]\config\machine.config
