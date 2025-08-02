@@ -1,5 +1,6 @@
 from cryptography import x509
 from datetime import datetime
+import os
 import socket
 import ssl
 import sys
@@ -39,9 +40,19 @@ class GetSsl:
                 ssl_date = cert_data.not_valid_after_utc
                 return ssl_date
 
+    def zabbix_send(self, zabbix_key: str, zabbix_value: float|int) -> bool:
+        zabbix_command = f"""zabbix_sender -z {settings.ZABBIX_SERVER} -p {settings.ZABBIX_PORT}\
+                             -s {settings.ZABBIX_NODE} -k {zabbix_key} -o {zabbix_value}"""
+        os.system(zabbix_command)
+        return True
+
     def main(self):
         for hostname in settings.HOSTS:
             ssl_date = self.get_date(hostname)
+            if ssl_date:
+                self.zabbix_send(hostname, int(ssl_date.timestamp() - datetime.now().timestamp()))
+            else:
+                self.zabbix_send(hostname, 0)
             print("Expiry date:", ssl_date)
             if ssl_date.timestamp() < datetime.now().timestamp():
                 print("DANGER________DANGER_______DANGER_______DANGER")

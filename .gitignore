@@ -3,3 +3,4 @@ venv
 temperature/__pycache__
 temp
 ssl/__pycache__/config.cpython-311.pyc
+.vscode/extensions.json
